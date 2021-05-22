@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 shopt -s extglob
 flag=0
 	while [[ flag -eq 0 ]]
@@ -46,6 +46,19 @@ done
 do
 	read -p "Enter mail name: " name
 	pattern="^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})*$"
+	if [[ $name =~ $pattern ]]
+then
+	flag=0
+else
+	echo "Invalid Enter Again"
+fi
+done
+
+while [[ flag -eq 0 ]]
+do
+read -p "Enter Password number: " name
+
+pattern="^[a-z0-9]{8,}$"
 	if [[ $name =~ $pattern ]]
 then
 	flag=0
